@@ -1,20 +1,26 @@
+
+// import { initializeApp } from "firebase/app";
 import firebase from "firebase/compat/app";
 // auth
-import { getAuth } from "firebase/auth";
-import "firebase/compat/firestore";
-import "firebase/compat/auth";
+import {getAuth} from 'firebase/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA-IQDPQrWwtapk60VSoSCuh7vEBWQrJgQ",
-  authDomain: "clone-38286.firebaseapp.com",
-  projectId: "clone-38286",
-  storageBucket: "clone-38286.appspot.com",
-  messagingSenderId: "947908360353",
-  appId: "1:947908360353:web:314e96ac93efd7ac72d8e0",
+  apiKey: "AIzaSyC9zUbInZn0ALIErcbCDXPTWjxTHx6g7sc",
+  authDomain: "clone-666ba.firebaseapp.com",
+  projectId: "clone-666ba",
+  storageBucket: "clone-666ba.appspot.com",
+  messagingSenderId: "704396185219",
+  appId: "1:704396185219:web:c15b7327f1aeefb01c95b6"
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
+const app =  firebase.initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = app.firestore()
+// export const db = app.firestore();
+export const db = app.firestore();
