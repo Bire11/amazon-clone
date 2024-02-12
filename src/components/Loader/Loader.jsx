@@ -1,5 +1,5 @@
 import React from 'react'
-import {FadeLoader} from 'react-spinner'
+import {ScaleLoader} from 'react-spinner'
 
 const Loader = () => {
   return (
@@ -13,7 +13,7 @@ const Loader = () => {
     
     >
 
-<FadeLoader color="#36d7b7" /> 
+<ScaleLoader color="#36d7b7" />
     </div>
   )
 }

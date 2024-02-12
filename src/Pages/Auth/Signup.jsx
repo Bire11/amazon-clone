@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import classes from './signup.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 import { auth } from '../../Utility/firebase';
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword,} from 'firebase/auth'; 
 import { DataContext } from './../../components/DataProvider/DataProvider';
@@ -13,18 +13,19 @@ const Auth = () => {
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState({signin:false,
-  signup:false})
+  const [loading, setLoading] = useState({signIn:false, signUp:false})
   // console.log(password,email);
 
  const [{user},dispatch] = useContext(DataContext);
  const navigate = useNavigate();
- console.log(user)
+ const navStateData = useLocation();
+//  console.log(user)
+ console.log(navStateData)
 
   const authHandler = async (e) => {
     e.preventDefault();
     // console.log(e.target.name);
-    if (e.target.name == "signin") {
+    if (e.target.name == "signIn") {
       // firebase auth
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
@@ -35,7 +36,7 @@ const Auth = () => {
             user: userInfo.user,
           });
           setLoading({ ...loading, signIn: false });
-          navigate( "/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           // console.log(err)
@@ -52,7 +53,7 @@ const Auth = () => {
             user: userInfo.user,
           });
           setLoading({ ...loading, signUP: false });
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           // console.log(err)
@@ -71,6 +72,19 @@ const Auth = () => {
       {/* form */}
        <div className={classes.login__container}>
          <h1>Sign In</h1>
+         { navStateData?.state?.msg &&(
+          <small 
+              style={{
+                padding: '5px',
+                textAlign:'center',
+                color: 'red',
+                fontWeight:'bold'
+                }}
+          >
+            {navStateData?.state?.msg}
+
+          </small>
+         )}
          <form action=''>
              <div>
                 <label htmlFor='email'>Email</label>
@@ -85,10 +99,10 @@ const Auth = () => {
              <button 
              type='submit' 
              onClick={authHandler} 
-             name='signin'
+             name='signIn'
              className={classes.login__signInButton}>
                  {
-                 loading.signin? <ClipLoader color='#000>' size={15}></ClipLoader>:('Sign In')
+                 loading.signIn? <ClipLoader color='#000>' size={15}></ClipLoader>:('Sign In')
                   }
                   </button>
 
@@ -102,10 +116,10 @@ const Auth = () => {
           <button 
           type='submit' 
           onClick={authHandler}
-          name='signup' 
+          name='signUp' 
           className={classes.login__registerButton}>
             {
-                 loading.signup? <ClipLoader color='#000>' size={15}></ClipLoader>:('Create Your Amazon Account')
+                 loading.signUp? <ClipLoader color='#000>' size={15}></ClipLoader>:('Create Your Amazon Account')
                   }
             
             </button>

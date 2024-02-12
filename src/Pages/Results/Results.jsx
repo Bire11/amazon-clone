@@ -11,6 +11,7 @@ const Results = () => {
 
   const [results, setResults] = useState([]);
   const {categoryName} = useParams()
+  const [isLoading, setIsLoading] = useState(false)
   // console.log(categoryName);
  
 useEffect(()=>{
@@ -18,9 +19,11 @@ useEffect(()=>{
   .then((res)=>{
     // console.log(res);
     setResults(res.data)
+    setIsLoading(false)
   }) 
   .catch((err)=>{
     console.log(err);
+    setIsLoading(false)
   })
 
 },[])
