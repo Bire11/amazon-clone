@@ -9,6 +9,8 @@ const Orders = () => {
 
   const [{ user }, dispatch] = useContext(DataContext);
   const [orders, setOrders] = useState([])
+  // console.log(orders);
+  // console.log(user)
 
   useEffect(()=>{
     if(user){

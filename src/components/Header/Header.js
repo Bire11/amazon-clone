@@ -7,6 +7,8 @@ import LowerHeader from './LowerHeader';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 import { auth } from '../../Utility/firebase';
+import { PiCaretDownLight } from "react-icons/pi";
+
 
 
 const Header = () => {
@@ -46,7 +48,7 @@ const Header = () => {
                 </select>
                 <input type='text' name='' id='' placeholder='search product'/>
                  {/* icon */}
-                <BsSearch size={40}/>
+                <BsSearch size={37}/>
             </div>
 
 
@@ -57,6 +59,8 @@ const Header = () => {
                     <section name= '' id= ''>
                         <option value=''>EN</option>
                     </section>
+                    <PiCaretDownLight  size={20}/>
+
                 </Link>
                 {/* three components */}
                 <Link to={!user &&'/auth'}>
@@ -89,7 +93,9 @@ const Header = () => {
                     {/* icon */}
                     <BiCart size={35}/>
                     <span>{totalItem}</span>
-                </Link>
+                    <p>Cart</p>
+                </Link>  
+                
 
                
             </div>

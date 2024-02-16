@@ -42,8 +42,9 @@ const Cart = () => {
           <h3>Your shopping basket</h3>
           <hr/>
           {
-            basket?.length===0?(<p>Opps ! No item in your cart</p>):(basket?.map((item,i)=>{
-              return <section className={classes.cart_product}>
+            basket?.length==0?(<p>Opps ! No item in your cart</p>):(basket?.map((item,i)=>{
+              
+              return <section className={classes.cart_product} key={i}>
               
               <ProductCard
                 key ={i}
@@ -75,10 +76,8 @@ const Cart = () => {
               <span>
                 <input type= 'checkbox'/>
                 <small>This order contains a gift</small>
-                        
-                <Link to='/payments' >Continue to checkout</Link>
               </span>
-
+              <Link to='/payments' >Continue to checkout</Link>
            </div>
            
            )}

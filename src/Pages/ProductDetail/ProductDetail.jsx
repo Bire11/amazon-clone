@@ -12,6 +12,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   useEffect(()=>{
+    setIsLoading(true)
     axios.get(`${productURL}/products/${productId}`)
     .then((res)=>{
       // console.log(res);

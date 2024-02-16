@@ -15,6 +15,7 @@ const Results = () => {
   // console.log(categoryName);
  
 useEffect(()=>{
+
   axios.get(`${productURL}/products/category/${categoryName}`)
   .then((res)=>{
     // console.log(res);
@@ -35,7 +36,7 @@ useEffect(()=>{
         <p style={{padding:"30px"}}>category/{categoryName}</p>
         <hr/>
 
-        {isLoading ?(
+        {isLoading ? (
         <Loader/>
         ):(
         <div className={classes.products_container}>

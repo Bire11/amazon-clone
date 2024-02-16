@@ -80,6 +80,7 @@
     justify-content: center;
     max-width: 450px;
     gap: 10px;
+    left: auto;
   }
   .order__container a {
     text-decoration: none;
@@ -103,8 +104,13 @@
   }
   .cart {
     position: relative;
+    display: flex;
+  }
+  .cart p{
+    padding: 10px;
   }
   .cart span {
+   
     position: absolute;
     font-weight: bold;
     top: -6px;

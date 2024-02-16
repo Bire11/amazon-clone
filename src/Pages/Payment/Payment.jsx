@@ -125,7 +125,7 @@ setProcessing(false);
 
           <div>
             {
-            basket?.map((item)=><ProductCard product={item} flex = {true}/>)
+            basket?.map((item)=><ProductCard key={item.id} product={item} flex = {true}/>)
             }
           </div>
         </div>

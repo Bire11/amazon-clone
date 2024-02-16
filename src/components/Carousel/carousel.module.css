@@ -1,5 +1,6 @@
 .hero__img{
     position: relative;
+  
 }
 
 .hero__img::before {
@@ -15,3 +16,4 @@
     );
    
   }
+  
